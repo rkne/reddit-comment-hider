@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "Hide Useless Edits",
+    "version": "1",
+    "description": "Hides useless and annoying edits",
+    "content_scripts": [
+        {
+            "run_at":    "document_end",
+            "matches": [ "*://www.reddit.com/r/*/comments/*" ],
+            "js":      [ "jquery-2.1.4.js", "src/remove.js" ]
+        }
+    ]
+}
