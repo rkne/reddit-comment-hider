@@ -1,5 +1,5 @@
-var bannedStrings = ['my top', 'my highest', 'top comment', 'highest rated', 'gold', 'downvote', 'downvotes',
-    'downvoted', 'highest voted', 'kind stranger', 'blew up', 'inbox', 'overnight', 'front page', 'obligatory'];
+var bannedStrings = ['my top', 'my highest', 'top comment', 'highest rated', 'gold', 'downvote', 'highest voted',
+    'kind stranger', 'my inbox', 'blew up', 'overnight', 'front page', 'obligatory'];
 var $comments = $('.commentarea .usertext-body > .md');
 
 $comments.each(function() {
