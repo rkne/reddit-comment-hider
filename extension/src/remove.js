@@ -1,29 +1,16 @@
-var bannedStrings = ['my top', 'my highest', 'top comment', 'highest rated', 'gold', 'downvote', 'highest voted',
-    'kind stranger', 'my inbox', 'blew up', 'overnight', 'front page', 'obligatory'];
-var $comments = $('.commentarea .usertext-body > .md');
+'use strict'
 
-$comments.each(function() {
-    // split out comment by blocks
-    var text = $(this).text().trim().split("\n");
-    var finishHtml = '<p>' + text[0] + '<p>';
-    if (text.length > 1) {
-        $.each(text, function(idx, val) {
-            // if this is an empty string, return;
-            // if this is the first idx, return (since no one puts edits on the first line)
-            if (idx === 0) {
-                return;
-            }
-            // if edit contains a banned string, ignore it
-            if (val.substr(0, 4).toLowerCase() === 'edit') {
-                for (var i = 0; i < bannedStrings.length; i++) {
-                    if (val.indexOf(bannedStrings[i]) > -1) {
-                        return;
-                    }
-                }
-            }
-            // if edit contains no banned string, append back to the post
-            finishHtml = finishHtml+ "\n" + "<p>" + text[idx] + "</p>";
-        });
+let bannedStrings = ['my top', 'my highest', 'top comment', 'highest rated', 'gold', 'downvote', 'highest voted',
+    'kind stranger', 'my first', 'my inbox', 'blew up', 'overnight', 'front page', 'obligatory']
+let $comments = $('.commentarea .usertext-body > .md > p')
+
+$comments.each((idx, val) => {
+    let text = val.innerText.toLowerCase()
+    if (text.substr(0, 4) === 'edit') {
+        if (_.find(bannedStrings, (str) => {
+            return text.indexOf(str) !== -1
+        })) {
+            $(val).hide()
+        }
     }
-    $(this).html(finishHtml);
-});
+})

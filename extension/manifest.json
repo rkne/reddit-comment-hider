@@ -7,7 +7,7 @@
         {
             "run_at":    "document_end",
             "matches": [ "*://www.reddit.com/r/*/comments/*" ],
-            "js":      [ "jquery-2.1.4.js", "src/remove.js" ]
+            "js":      [ "jquery-2.1.4.js", "underscore-min.js", "src/remove.js" ]
         }
     ]
 }
