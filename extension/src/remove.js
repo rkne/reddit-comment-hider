@@ -1,7 +1,7 @@
 'use strict'
 
-let bannedStrings = ['my top', 'my highest', 'top comment', 'highest rated', 'gold', 'downvote', 'highest voted',
-    'kind stranger', 'my first', 'my inbox', 'blew up', 'overnight', 'front page', 'obligatory', 'gilded']
+let bannedStrings = ['my top', 'my highest', 'top comment', 'highest rated', 'gold', 'downvote', 'highest voted', 'upvote',
+    'kind stranger', 'rip inbox', 'rip my', 'my first', 'my inbox', 'blew up', 'overnight', 'front page', 'obligatory', 'gilded']
 
 let findAndHide = (idx, val) => {
     let text = val.innerText.toLowerCase()
